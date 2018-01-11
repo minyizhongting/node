@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+</head>
+<body>
+<p id="result">修改文本内容</p>
+<button onclick="loadXMLDoc()">修改内容</button>
+<script>
+	function loadXMLDoc(){
+		if(window.XMLHttpRequest){
+			var xmlhttp = new XMLHttpRequest();
+		}else{
+			var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange = function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+				document.getElementById('result').innerHTML = xmlhttp.responseText;
+			}
+		};
+
+		xmlhttp.open("GET","./input.txt",true);
+		xmlhttp.send();
+	}
+</script>
+</body>
+</html>

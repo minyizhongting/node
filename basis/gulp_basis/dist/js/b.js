@@ -1,0 +1,1 @@
+function console(o){console.log("--------\r\n"+o+"\r\n--------")}console("Console!");
